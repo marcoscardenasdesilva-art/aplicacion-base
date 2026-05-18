@@ -4,15 +4,37 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>es.juntadeandalucia.practicas</groupId>
+    <groupId>com.example</groupId>
     <artifactId>aplicacion-base</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
+
+    <parent>    		
+    <groupId>org.springframework.boot</groupId>   		
+    <artifactId>spring-boot-starter-parent</artifactId>  		
+    <version>3.5.11</version>  		
+    <relativePath/>	
+  </parent>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <pitest-maven.version>1.15.2</pitest-maven.version>
+        <pitest-junit5-plugin.version>1.2.1</pitest-junit5-plugin.version>
     </properties>
 
+    <distributionManagement>    		
+    <repository>     			
+      <id>releases</id>   			
+      <name>Internal Releases</name>     			
+      <url>https://binarios.juntadeandalucia.es/artifactory/ja-artifacts-deploy/</url>		
+    </repository>  		
+    
+    <snapshotRepository> 			
+      <id>snapshots</id>		
+      <name>Internal Snapshots</name>	
+      <url>https://binarios.juntadeandalucia.es/artifactory/ja-artifacts-deploy/</url>	
+    </snapshotRepository>    	
+  </distributionManagement>
 
     <build>
         
@@ -44,6 +66,34 @@
         </execution>
     </executions>
 </plugin>
+
+    <plugin>
+				<groupId>org.owasp</groupId>
+				<artifactId>dependency-check-maven</artifactId>
+				<version>12.2.0</version>
+				<configuration>
+					<scanDependencies>true</scanDependencies>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>check</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+    <plugin>
+    			<groupId>org.pitest</groupId>
+    			<artifactId>pitest-maven</artifactId>
+    			<version>${pitest-maven.version}</version>
+    			<dependencies>
+  					<dependency>
+    					<groupId>org.pitest</groupId>
+    					<artifactId>pitest-junit5-plugin</artifactId>
+    					<version>${pitest-junit5-plugin.version}</version>
+					</dependency>
+            	</dependencies>
+			</plugin>
 
 </plugins>
     
