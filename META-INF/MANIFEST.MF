@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Created-By: Maven JAR Plugin 3.3.0
+Build-Jdk-Spec: 21
+Implementation-Title: aplicacion-base
+Implementation-Version: 1.0.0
+Main-Class: es.juntadeandalucia.incurridos.Main
+
