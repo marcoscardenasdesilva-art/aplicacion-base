@@ -1,0 +1,6 @@
+es\juntadeandalucia\incurridos\util\CsvReader.class
+es\juntadeandalucia\incurridos\Main.class
+es\juntadeandalucia\incurridos\util\CsvWriterErrores.class
+es\juntadeandalucia\incurridos\service\ValidadorIncurridos$ResultadoValidacion.class
+es\juntadeandalucia\incurridos\model\LineaIncurrido.class
+es\juntadeandalucia\incurridos\service\ValidadorIncurridos.class
